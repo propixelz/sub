@@ -72,7 +72,7 @@ MongoClient.connect(path, function (err, followersDatabase) {
     var logger = require('morgan');
     var logic = require('./src/logic');
     var media = require('./src/twitter_update_with_media');
-    var watson = require('watson-developer-cloud');
+    // var watson = require('watson-developer-cloud');
 
     var multiparty = require('multiparty');
 
