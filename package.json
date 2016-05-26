@@ -1,16 +1,25 @@
 {
-	"name": "NodejsStarterApp",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node app.js"
-	},
-	"dependencies": {
-		"express": "4.13.x",
-		"cfenv": "1.0.x"
-	},
-	"repository": {},
-	"engines": {
-		"node": "4.x"
-	} 
+    "name": "ProfileWords",
+    "version": "v0.0.1",
+    "description": "A tool for analyzing Twitter accounts, using follower's bios",
+    "dependencies": {
+        "mongodb": "*",
+        "express": "*",
+        "twit": "~1.1.11",
+        "cookie-parser": "*",
+        "express-session": "~1.0.3",
+        "errorhandler": "*",
+        "morgan": "*",
+        "request": "*",
+        "multiparty": "*",
+        "oauth": "*",
+        "watson-developer-cloud": "*"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "start": "node app.js"
+    },
+    "repository": {}
 }

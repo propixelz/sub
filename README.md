@@ -1,17 +1,28 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+profilewords
+------------
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+An idea to explore the profiles of followers on twitter.
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+![This is the concept](./documents/antonmc.png "Profile Words")
 
-Finally, consider defining some sprints and work items in Track & Plan to give 
-interested developers a sense of your cadence and upcoming enhancements.
+[ This is an example of a word cloud of my follower's biographies ]
+
+Sometimes in my user research for software tools, I like to look at profiles of twitter followers - to understand their roles, and motivations for choosing a technology.
+
+But really there are so many interesting reasons to explore the followers of a user:
+
+- To see if there is a commonality of followers - to see if the person tweets to a group you match
+- To learn more about the network of a Twitter id, to research that person
+
+I thought it would be a fun project to write some code to look for patterns en masse.
+
+This is the concept:
+<br/>
+
+![This is the concept](./images/profile-words-concept.png "Profile Words")
+
+
+
+Here's [an article explaining how I used it](http://goo.gl/IgzYUG "Blog about followers profiles of election candidates")  during an election to understand the candidates from their social media profiles.
+
+Here's [my running app](http://goo.gl/VrHfLs "ProfileWords") - still experimental

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>ProfileWords - Twitter identity analysis tool</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./style/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./style/cover.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Twittedy</h3>
+              <ul class="nav masthead-nav">
+                <!--li><a href="#" data-toggle="modal" data-target="#myModal">About</a></li-->
+                <!-- li><a href="#">Contact</a></li -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover">
+              <img src="./images/words-persona-orange.png" alt="Sign in with Twitter" title="ProfileWords Cover" class="coverImage">
+            <h1 class="cover-heading">Social Biographies</h1>
+            <p class="lead">Explore people and products through their followers</p>
+               <!-- img style="padding-top:50px;" src="https://dev.twitter.com/sites/default/files/images_documentation/sign-in-with-twitter-gray.png" alt="Sign in with Twitter" title="Sign in with Twitter" -->
+              
+              
+              <a href="/sessions/connect" id="twitterAuth" class="button button--twitter" data-action="twitter-auth" title="Connect with Twitter">
+                  <span style="top:3px;" class="icon icon--twitter"></span>
+                  <span class="button-label--twitter">Sign in with Twitter</span>
+              </a>
+              
+              
+          </div>
+
+          <!-- div class="mastfoot">
+            <div class="inner">
+              <p>An expriment by <a href="https://twitter.com/antonmc">@antonmc</a>.</p>
+            </div>
+          </div -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./src/bootstrap.js"></script>
+  </body>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">About Profile Words</h4>
+      </div>
+      <div class="modal-body">
+         <p>ProfileWords is an experimental tool that explores the identity behind Twitter accounts. </p><p>It uses word clouds to visualize the most frequently occurring words in the biographies of those following an account, or the accounts followed.</p> <p>The word clouds often reflect and reveal insightful underlying interests of the root account.<p/><p>Profile Words needs to work with Twitter's API, which requires authentication. It respects your account by not sending surprise Tweets, or interfering with any Twitter data.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ProfileWords - Twitter identity analysis tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="twitter profiles biography wordcloud analytics sentiment identity analysis bio social media followers following tweets">
+    <meta name="author" content="Anton McConville">
+    <link href="style/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/profilewords.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela' rel='stylesheet' type='text/css'>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+</head>
+
+<body id="body">
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Twittedy</a>
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- li class="active"><a href="#">Home</a></li -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <canvas title="Themes" data-placement="bottom" data-content="Paint your wordcloud in different colors." id="themeArea" width="106" height="26" class="themeArea"></canvas>
+                            <b class="caret"></b>
+                        </a>
+                        <ul id="dropdownMenu" class="dropdown-menu" style="padding-left: 10px;min-width:250px;">
+
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li></li>
+                    <li><a href="#about" data-toggle="modal" data-target="#aboutModal">About</a>
+                    </li>
+                    <li><a href="#contact">Log out</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="flex-container flex-container-style fixed-height flex-header">
+        <!-- div class="flex-item">
+            <div  class="instruction">
+                <span> Follower's profiles for this Twitter ID: </span>
+            </div>
+        </div -->
+        <div class="flex-item">
+            <!-- canvas width="400" height="1000" class="helpCanvas" id="helpInfo"></canvas -->
+        </div>
+        <div class="flex-item">
+            <span class="leadArea"> 
+                    <form class="twitterIdEntry" action="javascript:renderCloud()" method="get"> 
+                        <div class="input-group input-group-lg" style="max-width: 290px;">
+                        <span class="input-group-addon">@</span>
+            <input id="twitterIDfield" type="text" class="form-control" placeholder="Username"></input>
+            <span class="input-group-addon">
+                                <div id="spinner"></div>
+                        </span>
+        </div>
+        </form>
+        </span>
+    </div>
+    <div class="flex-item" style="padding-top: 20px;">
+
+        <div class="btn-group btn-group-xs" data-toggle="buttons">
+            <label title="Followers" data-placement="bottom" data-content="Make a cloud from up to 1000 biographies of this Twitter account followers" id="followers" class="btn btn-warning active" onclick="setCloudType('followers')">
+                <input type="radio" name="options" id="option1"> Followers
+            </label>
+            <label title="Following" data-placement="bottom" data-content="Make a cloud from up to 1000 biographies from the people following this Twitter account" id="following" class="btn btn-warning" onclick="setCloudType('following')">
+                <input type="radio" name="options" id="option2"> Following
+            </label>
+            <label title="Favorites" data-placement="bottom" data-content="Make a cloud from the last 25 favorite tweets of the people following this Twitter account" id="favorites" class="btn btn-warning" onclick="setCloudType('favorites')">
+                <input type="radio" name="options" id="option3"> Favorites
+            </label>
+            <label title="Tweets" data-placement="bottom" data-content="Make a cloud from the last 25 tweets of the people following this Twitter account" id="tweets" class="btn btn-warning" onclick="setCloudType('tweets')">
+                <input type="radio" name="options" id="option3"> Tweets
+            </label>
+        </div>
+
+    </div>
+    <div class="flex-item">
+        IBM Watson Personality Insight:
+        <input id="toggle-event" type="checkbox" data-size="mini" data-toggle="toggle" change="watson()">
+    </div>
+
+
+    <div id="warningArea">
+    </div>
+    </div>
+    <div class="flex-container flex-container-style artboard-height">
+        <div class="flex-item">
+            <span>
+                <div id='artboard'>
+                    <div id='wordle-container' class='wordcontainer'></div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="flex-container flex-container-style fixed-height">
+                <div class="flex-item">
+                    <div id="progressIndicator" class="progressIndicator" data-toggle="popover" data-placement="left" data-content="Progress Indicator - spins when processing.">
+                        <label title="Query rate indicator" data-placement="top" data-content="Twitter limits the number of queries a person can make on Twitter data, over a given time period. Usually you can make 15 queries each 15 minutes using this tool. A bar will grow here to chart your usage while you query. " class="progressLabel">Queries used:</label>
+                        <canvas id="canvas" width="80" height="10"></canvas>
+
+                        <span title="Redraw wordcloud" data-toggle="popover" data-placement="top" data-content="Redraws the word cloud using cached data - does not affect rate limit. You can redraw to view the cloud in different ways." id="refresh" onclick="refresh();" class="glyphicon glyphicon-refresh" style="top:4px;font-size:14pt;padding-left:10px;"></span>
+                        <span title="Download a png of the wordcloud" class="glyphicon glyphicon-download" data-toggle="popover" data-placement="top" data-content="Downloads a static png image of the current wordcloud." onclick="downloadPNG();" style="font-size:14pt;top:4px;padding-left:10px;"></span>
+                        <span title="Tweet a png of the wordcloud" class="glyphicon glyphicon-upload" data-placement="top" data-toggle="popover" data-content="Open a dialog to type a tweet and attach a wordcloud. No automatic tweets, you decide to send or not." onclick="writeTweet();" style="font-size:14pt;top:4px;padding-left:10px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="//use.edgefonts.net/love-ya-like-a-sister;amatic-sc.js"></script>
+        <!-- script src="src/d3.min.js"></script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+        <script src="src/d3.layout.cloud.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="src/bootstrap.js"></script>
+        <script src="src/profilewords.js"></script>
+        <script src="src/spin.js"></script>
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+        <script>
+            $(function () {
+                $('#toggle-event').change(function () {
+                    watson($(this).prop('checked'));
+                })
+            })
+        </script>
+</body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Tweet this word cloud ... </h4>
+            </div>
+            <div class="modal-body" style="display:inline-flex;">
+                <textarea id="tweetarea" class="tweetarea" onkeyup="manageTweetArea(event);" rows="10" cols="50">Write something here</textarea>
+                <span class="cloudpreview" id="preview"></span>
+            </div>
+            <div class="modal-footer">
+                <span id="messageLength">140</span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" id="tweetButton" class="btn btn-primary" onclick="submitTweet()">Tweet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">About ProfileWords</h4>
+            </div>
+            <div class="modal-body">
+                <p>ProfileWords is an experimental tool that explores the identity behind Twitter accounts. </p>
+                <p>It uses word clouds to visualize the most frequently occurring words in the biographies of those following an account, or the accounts followed.</p>
+                <p>The word clouds often reflect and reveal insightful underlying interests of the root account.
+                    <p/>
+                    <p>Profile Words needs to work with Twitter's API, which requires authentication. It respects your account by not sending surprise Tweets, or interfering with any Twitter data.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
