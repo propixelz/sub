@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 1024M
+  instances: 1
+  domain: mybluemix.net
+  name: twittedy
+  host: twittedy
+  disk_quota: 2048M
+  services:
+  - Mongo_twitter_Words
