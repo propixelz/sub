@@ -26,7 +26,7 @@ if (process.env.VCAP_SERVICES) {
 
     var env = JSON.parse(process.env.VCAP_SERVICES);
 
-    var ml = env."mongodb-2.4";
+    var ml = env["mongodb-2.4"];
     
 
     path = ml[0].credentials.uri;
@@ -87,11 +87,11 @@ MongoClient.connect(path, function (err, followersDatabase) {
 
     console.log('create personality insights connection');
 
-    var personalityInsights = watson.personality_insights({
+/*    var personalityInsights = watson.personality_insights({
         username: "e6f10ebe-a3f0-4b7c-a4ba-5201c726f5ca",
         password: "U0B0KT2G8cVc",
         version: "v2"
-    });
+    });*/
 
     console.log('created personality insights connection');
 

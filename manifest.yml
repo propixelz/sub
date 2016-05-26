@@ -9,4 +9,3 @@ applications:
   disk_quota: 2048M
   services:
   - Mongo_twitter_Words
-  - insightful-personality_insights
