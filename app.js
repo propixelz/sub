@@ -27,6 +27,7 @@ if (process.env.VCAP_SERVICES) {
     var env = JSON.parse(process.env.VCAP_SERVICES);
 
     var ml = env."mongodb-2.4";
+    console.log(env);
 
     path = ml[0].credentials.uri;
     if (process.env.TWITTER_ENDPOINT) {
