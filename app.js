@@ -29,10 +29,10 @@ if (process.env.VCAP_SERVICES) {
     var ml = env["mongodb-2.4"];
     
 
-    path = ml[0].credentials.uri;
+    path = ml[0].credentials.url;
     if (process.env.TWITTER_ENDPOINT) {
 
-        path = ml[0].credentials.uri;
+        path = ml[0].credentials.url;
 
         _callBackPage = process.env.TWITTER_ENDPOINT;
 
@@ -43,13 +43,13 @@ if (process.env.VCAP_SERVICES) {
 } else {
 
     mongo = {
-        "hostname": "nosql-dev",
+        "hostname": "localhost",
         "port": 27017,
         "username": "",
         "password": "",
         "name": "",
         "db": "db",
-        "url": "mongodb://nosql-dev:27017/db"
+        "url": "mongodb://localhost:27017/db"
     };
 
     path = mongo.url;
