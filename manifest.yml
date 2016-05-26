@@ -5,6 +5,7 @@ applications:
   domain: mybluemix.net
   name: twittedy
   host: twittedy
+  command: node app.js  
   disk_quota: 2048M
   services:
   - Mongo_twitter_Words
