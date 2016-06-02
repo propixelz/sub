@@ -1,5 +1,5 @@
 {
-    "name": "ProfileWords",
+    "name": "Twittedy",
     "version": "v0.0.1",
     "description": "A tool for analyzing Twitter accounts, using follower's bios",
     "dependencies": {

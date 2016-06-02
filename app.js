@@ -11,16 +11,6 @@ var __dirname = '.';
 
 var path;
 
-/* This app has been developed to run with a locally installed Mongo database,
-   OR a MongoLabs database created as a Bluemix service.
-   
-   The following code checks for process.env.VCAP_SERVICES. If it finds
-   the VCAP_SERVICES environment variable it will assume that this code
-   is running on Bluemix and find the path for the Mongo database from there.
-   
-   If it doesn't find that variable, the code assumes it is running on an 
-   alternative local deployment. You can switch out the mongo credentials 
-   from here to point to whatever Mongod database you like */
 
 if (process.env.VCAP_SERVICES) {
 
