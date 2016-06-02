@@ -3,7 +3,7 @@
    ========================================================================== */
 
 body {
-    color: #E47325;
+    color: rgba(66, 157, 202, 0.97);
     width: 100%;
     height: 100%;
     background: #f9f5ef;
@@ -367,12 +367,12 @@ footer {
 }
 
 .navbar-default .navbar-brand {
-    color: #E47325;
+    color: rgba(66, 157, 202, 0.97);
     font-weight: bold;
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: #E47325;
+    color: rgba(66, 157, 202, 0.97);
     font-weight: normal;
 }
 
@@ -396,7 +396,7 @@ footer {
 .btn-warning.active,
 .open .dropdown-toggle.btn-warning {
     color: #fff;
-    background-color: #E47325;
+    background-color: rgba(66, 157, 202, 0.97);
     /* #ed9c28; */
     
     border: white 2px solid;

@@ -25,13 +25,13 @@ var themes = [
     {
         name: 'Naranja',
         background: '#FFFFFE',
-        words: ['#F58422', '#FACDA7', '#E47325', '#F4A261', '#F6B989'],
+        words: ['#d4806d', '#cbc4ba', '#c2be98', '#e3cb92', '#695d4f'],
         font: 'Varela'
     },
     {
         name: 'Earth',
         background: '#FCFBF8',
-        words: ['#d4806d', '#cbc4ba', '#c2be98', '#e3cb92', '#695d4f'],
+        words: ['#F58422', '#FACDA7', '#E47325', '#F4A261', '#F6B989'],
         font: 'Varela'
     },
     {
