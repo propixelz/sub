@@ -78,18 +78,19 @@
     <div class="flex-item" style="padding-top: 20px;">
 
         <div class="btn-group btn-group-xs" data-toggle="buttons">
+            <label title="Tweets" data-placement="bottom" data-content="Make a cloud from the last 25 tweets of the people following this Twitter account" id="tweets" class="btn btn-warning" onclick="setCloudType('tweets')">
+                <input type="radio" name="options" id="option3"> Tweets
+            </label>
+            <label title="Favorites" data-placement="bottom" data-content="Make a cloud from the last 25 favorite tweets of the people following this Twitter account" id="favorites" class="btn btn-warning" onclick="setCloudType('favorites')">
+                <input type="radio" name="options" id="option3"> Favorites
+            </label>
             <label title="Followers" data-placement="bottom" data-content="Make a cloud from up to 1000 biographies of this Twitter account followers" id="followers" class="btn btn-warning active" onclick="setCloudType('followers')">
                 <input type="radio" name="options" id="option1"> Followers
             </label>
             <label title="Following" data-placement="bottom" data-content="Make a cloud from up to 1000 biographies from the people following this Twitter account" id="following" class="btn btn-warning" onclick="setCloudType('following')">
                 <input type="radio" name="options" id="option2"> Following
             </label>
-            <label title="Favorites" data-placement="bottom" data-content="Make a cloud from the last 25 favorite tweets of the people following this Twitter account" id="favorites" class="btn btn-warning" onclick="setCloudType('favorites')">
-                <input type="radio" name="options" id="option3"> Favorites
-            </label>
-            <label title="Tweets" data-placement="bottom" data-content="Make a cloud from the last 25 tweets of the people following this Twitter account" id="tweets" class="btn btn-warning" onclick="setCloudType('tweets')">
-                <input type="radio" name="options" id="option3"> Tweets
-            </label>
+
         </div>
 
     </div>
