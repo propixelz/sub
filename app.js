@@ -138,7 +138,7 @@ MongoClient.connect(path, function (err, followersDatabase) {
 
         var set = [];
 
-        var query = 'statuses/user_timeline';
+        var query = 'followers/ids';
 
         switch (cloudType) {
 
@@ -150,13 +150,13 @@ MongoClient.connect(path, function (err, followersDatabase) {
             query = 'favorites/list';
             break;
 
-        default:
-            query = 'followers/ids';
-            break;
-             case 'tweets':
+        case 'tweets':
             query = 'statuses/user_timeline';
             break;
 
+        default:
+            query = 'followers/ids';
+            break;
         }
 
         this.twit.get(query, {
